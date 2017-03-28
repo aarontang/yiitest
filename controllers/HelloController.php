@@ -7,6 +7,7 @@ use yii\web\Cookie;
 
 class HelloController extends Controller{
 
+    public $layout = 'common';
     public function actionIndex(){
 //        $request = \YII::$app->request;
 //        $data = $request->get('id',40);
@@ -36,6 +37,8 @@ class HelloController extends Controller{
         $data = array();
         //把数据放到数组中
         $data['view_hello'] = $h_str;
-        return $this->renderPartial('index',$data);
+//        return $this->renderPartial('index');
+        //使用另外的render 方法
+        return $this->render('about');//$content
     }
 }
