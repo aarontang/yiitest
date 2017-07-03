@@ -1,9 +1,11 @@
 <?php
 namespace app\controllers;
+use yii;
+use app\model\Ad;
 use yii\web\Controller;
 use yii\web\Cookie;
 
-//use yii;
+
 
 class HelloController extends Controller{
 
@@ -40,5 +42,26 @@ class HelloController extends Controller{
 //        return $this->renderPartial('index');
         //使用另外的render 方法
         return $this->render('about');//$content
+    }
+
+
+    public function actionIndex1()
+    {
+        $sql = "select * from ad where id=:id";
+        $param = array(':id'=>2);
+        $d = Ad::findBySql($sql,$param)->all();//返回的是数组 数组的元素是对象
+        $d1 = Ad::find()->where(['id'=>2])->all();
+        //ID大于5
+
+        //使用数组的方式
+        $d1 = Ad::find()->where(['>','id',5])->asArray()->all();
+
+        //批量查询
+        foreach (Ad::find()->batch(2) as $a){
+
+        }
+        //使用验证器
+
+        var_dump($d1);
     }
 }

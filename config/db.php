@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=db1.vm.lanyicj.cn;dbname=compass',
+    'dsn' => 'mysql:host=db1.vm.lanyicj.cn;dbname=tm_qihuo',
     'username' => 'dev',
     'password' => 'dev',
     'charset' => 'utf8mb4',
@@ -24,6 +24,6 @@ return [
     ],
     // 配置从服务器组
     'slaves' => [
-        ['dsn' => 'mysql:host=db1.vm.lanyicj.cn;dbname=compass'],
+        ['dsn' => 'mysql:host=db1.vm.lanyicj.cn;dbname=tm_qihuo'],
     ],
 ];
